@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker-ci:
-    uses: mahekshahbad/docker-ci-pipeline-template/.github/workflows/docker-ci-pipeline-template.yml@main
+    uses: mahekshahbad/docker-ci-pipeline-template/.github/workflows/docker-ci-template.yml@main
     with:
       image_name: mahekshahbad/consumer-image
       build_command: ./mvnw clean package -DskipTests
