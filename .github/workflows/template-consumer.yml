@@ -1,0 +1,17 @@
+name: Consumer CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-ci:
+    uses: mahekshahbad/docker-ci-pipeline-template/.github/workflows/docker-ci-pipeline-template.yml@main
+    with:
+      image_name: mahekshahbad/consumer-image
+      build_command: ./mvnw clean package -DskipTests
+      dockerfile_path: Dockerfile
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
