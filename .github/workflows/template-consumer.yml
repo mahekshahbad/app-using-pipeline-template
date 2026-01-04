@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   docker-ci:
     uses: mahekshahbad/docker-ci-pipeline-template/.github/workflows/docker-ci-template.yml@main
     with:
       image_name: mahekshahbad/consumer-image
+      image_tag: 1.0.0
+      jar_path: target/consumer-app-0.0.1-SNAPSHOT.jar
       build_command: ./mvnw clean package -DskipTests
       dockerfile_path: Dockerfile
     secrets:
