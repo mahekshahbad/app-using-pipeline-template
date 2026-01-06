@@ -1,4 +1,4 @@
-name: Consumer CI-Pipeline
+name: Consumer CI Pipeline
 
 on:
   push:
