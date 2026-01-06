@@ -15,8 +15,9 @@ jobs:
       image_name: mahekshahbad/consumer-image
       image_tag: 1.0.0
       jar_path: target/app.jar
-      build_command: ./mvnw clean package -DskipTests
+      build_command: ./mvnw package -DskipTests=false
       dockerfile_path: Dockerfile
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
