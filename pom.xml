@@ -163,37 +163,37 @@
     <plugins>
 
       <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.14</version>
-          <executions>
-              <!-- Prepare agent for test coverage -->
-              <execution>
-                  <id>prepare-agent</id>
-                  <goals>
-                      <goal>prepare-agent</goal>
-                  </goals>
-              </execution>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.14</version>
+        <executions>
+          <!-- Prepare agent for test coverage -->
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
 
-              <!-- Generate XML report -->
-              <execution>
-                  <id>report</id>
-                  <phase>test</phase>
-                  <goals>
-                      <goal>report</goal>
-                  </goals>
-                  <configuration>
-                      <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
-                      <outputEncoding>UTF-8</outputEncoding>
-                      <reports>
-                          <xml>true</xml>
-                          <csv>false</csv>
-                          <html>true</html>
-                      </reports>
-                  </configuration>
-              </execution>
-          </executions>
+          <!-- Generate XML report -->
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
+              <reports>
+                <xml>true</xml>
+                <csv>false</csv>
+                <html>true</html>
+              </reports>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
+
 
 
 
