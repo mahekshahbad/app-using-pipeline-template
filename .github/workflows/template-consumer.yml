@@ -16,7 +16,6 @@ jobs:
       jar_path: target/app.jar
       build_command: ./mvnw clean package
 
-      # ✅ inputs coming from repository VARIABLES
       sonar_project_key: ${{ vars.SONAR_PROJECT_KEY }}
       sonar_host_url: ${{ vars.SONAR_HOST_URL }}
       sonar_organization: ${{ vars.SONAR_ORGANIZATION }}
