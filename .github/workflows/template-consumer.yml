@@ -1,12 +1,10 @@
 name: Consumer CI Pipeline
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
+  push:
+    branches: [ main ]
 
 jobs:
   docker-ci:
@@ -15,9 +13,10 @@ jobs:
       image_name: mahekshahbad/consumer-image
       image_tag: 1.0.0
       jar_path: target/app.jar
-      build_command: ./mvnw clean package -DskipTests
-      dockerfile_path: Dockerfile
+      build_command: ./mvnw clean package
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
