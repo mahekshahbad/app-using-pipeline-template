@@ -1,4 +1,9 @@
-name: Consumer CI-Pipeline
+name: Consumer CI Pipeline
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
 
 on:
   pull_request:
