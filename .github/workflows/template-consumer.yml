@@ -3,21 +3,17 @@ name: Consumer CI Pipeline
 permissions:
   contents: read
   pull-requests: write
-  issues: write
 
 on:
   pull_request:
     branches: [ main ]
-  push:
-    branches: [ main ]
 
 jobs:
-  docker-ci:
+  ci:
     uses: mahekshahbad/docker-ci-pipeline-template/.github/workflows/docker-ci-template.yml@main
-
     with:
-      image_name: mahekshahbad/consumer-image
-      image_tag: 1.0.0
+      image_name: consumer-app
+      image_tag: pr-${{ github.event.number }}
       jar_path: target/app.jar
       build_command: ./mvnw clean package
 
@@ -26,6 +22,10 @@ jobs:
       sonar_organization: ${{ vars.SONAR_ORGANIZATION }}
       sonar_token: ${{ vars.SONAR_TOKEN }}
 
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      snyk_token: ${{ vars.SNYK_TOKEN }}
+
+      jfrog_url: ${{ vars.JFROG_URL }}
+      jfrog_docker_repo: ${{ vars.JFROG_DOCKER_REPO }}
+
+      JFROG_USERNAME: ${{ vars.JFROG_USERNAME }}
+      JFROG_API_KEY: ${{ vars.JFROG_API_KEY }}
