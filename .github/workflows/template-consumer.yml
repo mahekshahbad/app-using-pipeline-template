@@ -27,7 +27,7 @@ jobs:
       sonar_token: ${{ vars.SONAR_TOKEN }}
 
       SNYK_TOKEN: ${{ vars.SNYK_TOKEN }}
-      JFROG_URL: ${{ vars.JFROG_URL }}
+      JFROG_URL: https://triallkxcal.jfrog.io/artifactory
 
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
