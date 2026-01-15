@@ -26,6 +26,11 @@ jobs:
       sonar_organization: ${{ vars.SONAR_ORGANIZATION }}
       sonar_token: ${{ vars.SONAR_TOKEN }}
 
+      SNYK_TOKEN: ${{ vars.SNYK_TOKEN }}
+      JFROG_URL: ${{ vars.JFROG_URL }}
+
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      JFROG_USER: ${{ secrets.JFROG_USER }}
+      JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
