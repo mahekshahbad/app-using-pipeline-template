@@ -4,9 +4,17 @@
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-  <module name="TreeWalker">
-    <module name="LineLength">
-      <property name="max" value="120"/>
-    </module>
+
+  <!-- File-level checks -->
+  <module name="LineLength">
+    <property name="max" value="120"/>
   </module>
+
+  <!-- AST-based checks -->
+  <module name="TreeWalker">
+    <module name="UnusedImports"/>
+    <module name="AvoidStarImport"/>
+    <module name="EmptyBlock"/>
+  </module>
+
 </module>
